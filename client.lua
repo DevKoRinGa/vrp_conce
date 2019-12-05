@@ -20,7 +20,6 @@ end)
 
 RegisterNetEvent('send:carros')
 AddEventHandler('send:carros', function(veiculos, identidade)
-    IsInShopMenu = true
 	SetNuiFocus(true, true)
 	SendNUIMessage({
         show = true,
@@ -30,13 +29,11 @@ AddEventHandler('send:carros', function(veiculos, identidade)
 end)
 
 RegisterNUICallback('comprar', function(data, cb)
-	IsInShopMenu = false
 	SetNuiFocus(false, false)
 	local veh = data.id + 1
 	TriggerServerEvent('comprar:carro', veh)	
 end)
 
 RegisterNUICallback('fechar', function()
-    IsInShopMenu = false
     SetNuiFocus(false, false)
 end)
