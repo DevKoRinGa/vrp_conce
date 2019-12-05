@@ -77,18 +77,15 @@ AddEventHandler('comprar:carro', function(veh)
         local veiculo = rows[1]
         local modelo = veiculo.modelo
         local valor = veiculo.preco
-        local nome = veiculo.nome
-        local imagem = veiculo.img
         local quantidade = veiculo.quantidade
         local get_veh = vRP.query("vRP/get_vehicle", {user_id = user_id, vehicle = modelo})
         if #get_veh <= 0 then
             if quantidade > 0 then
-                placanum = math.random(10000, 99999)
                 if vRP.tryPayment(user_id, valor) then
                     quantidade = quantidade - 1		
                     vRPclient._notify(source,"Parabéns, você comprou um: " ..nome)
                     vRP.execute("sRP/set_quantidade", {id = veh, quantidade = quantidade})
-                    vRP.execute("vRP/add_vehicle", {user_id = user_id, vehicle = modelo, state = 0,placa = "P"..placanum , img = imagem})
+                    vRP.execute("vRP/add_vehicle", {user_id = user_id, vehicle = modelo})
                 else
                     vRPclient._notify(source, "Você não tem dinheiro suficiente!")
                 end
