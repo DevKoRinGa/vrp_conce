@@ -1,6 +1,6 @@
 local Tunnel = module("vrp", "lib/Tunnel")
 local Proxy = module("vrp", "lib/Proxy")
-local cfg = module("vrp_concessionaria", "cfg/config")
+local cfg = module("vrp_conce", "cfg/config")
 
 vRP = Proxy.getInterface("vRP")
 vRPclient = Tunnel.getInterface("vRP")
@@ -70,7 +70,7 @@ end)
 
 RegisterServerEvent('comprar:carro')
 AddEventHandler('comprar:carro', function(veh)
-	local source = source
+    local source = source
     local user_id = vRP.getUserId(source)
     local rows = vRP.query("sRP/get_veh_by_id", {id = veh})
     if #rows > 0 then
@@ -96,7 +96,7 @@ AddEventHandler('comprar:carro', function(veh)
         else
             vRPclient._notify(source, "Você já possui este veiculo!")
         end
-	end
+     end
 end)
 
 Citizen.CreateThread(function()
