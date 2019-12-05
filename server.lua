@@ -23,9 +23,9 @@ vRP._prepare("sRP/selecionar_veh","SELECT * FROM vrp_conce")
 vRP._prepare("sRP/get_veh_by_id","SELECT * FROM vrp_conce WHERE id = @id")
 vRP._prepare("sRP/set_quantidade","UPDATE vrp_conce SET quantidade = @quantidade WHERE id = @id")
 
-// QUERYs vRP ADV GARAGES IMPORTANT
-//vRP._prepare("vRP/add_vehicle","INSERT IGNORE INTO vrp_user_vehicles(user_id,vehicle) VALUES(@user_id,@vehicle)")
-//vRP._prepare("vRP/get_vehicle","SELECT vehicle FROM vrp_user_vehicles WHERE user_id = @user_id AND vehicle = @vehicle")
+-- QUERYs vRP ADV GARAGES IMPORTANT
+--vRP._prepare("vRP/add_vehicle","INSERT IGNORE INTO vrp_user_vehicles(user_id,vehicle) VALUES(@user_id,@vehicle)")
+--vRP._prepare("vRP/get_vehicle","SELECT vehicle FROM vrp_user_vehicles WHERE user_id = @user_id AND vehicle = @vehicle")
 
 async(function()
     vRP.execute("sRP/concessionaria")
