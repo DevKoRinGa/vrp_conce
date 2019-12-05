@@ -6,7 +6,7 @@ vRP = Proxy.getInterface("vRP")
 vRPclient = Tunnel.getInterface("vRP")
 
 vRP._prepare("sRP/concessionaria",[[
-    CREATE TABLE IF NOT EXISTS vrp_concessionaria(
+    CREATE TABLE IF NOT EXISTS vrp_conce(
         id INTEGER AUTO_INCREMENT,
         modelo VARCHAR(255),
         nome VARCHAR(255),
@@ -18,10 +18,10 @@ vRP._prepare("sRP/concessionaria",[[
     )
 ]])
 
-vRP._prepare("sRP/inserir_veh","INSERT INTO vrp_concessionaria(modelo, nome, preco, quantidade, descricao, img) VALUES(@modelo, @nome, @preco, @quantidade, @descricao, @img)")
-vRP._prepare("sRP/set_quantidade","UPDATE vrp_concessionaria SET quantidade = @quantidade WHERE id = @id")
-vRP._prepare("sRP/selecionar_veh","SELECT * FROM vrp_concessionaria")
-vRP._prepare("sRP/get_veh_by_id","SELECT * FROM vrp_concessionaria WHERE id = @id")
+vRP._prepare("sRP/inserir_veh","INSERT INTO vrp_conce(modelo, nome, preco, quantidade, descricao, img) VALUES(@modelo, @nome, @preco, @quantidade, @descricao, @img)")
+vRP._prepare("sRP/set_quantidade","UPDATE vrp_conce SET quantidade = @quantidade WHERE id = @id")
+vRP._prepare("sRP/selecionar_veh","SELECT * FROM vrp_conce")
+vRP._prepare("sRP/get_veh_by_id","SELECT * FROM vrp_conce WHERE id = @id")
 
 async(function()
     vRP.execute("sRP/concessionaria")
