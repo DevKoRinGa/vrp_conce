@@ -78,6 +78,7 @@ AddEventHandler('comprar:carro', function(veh)
         local modelo = veiculo.modelo
         local valor = veiculo.preco
         local quantidade = veiculo.quantidade
+        local nome = veiculo.nome
         local get_veh = vRP.query("vRP/get_vehicle", {user_id = user_id, vehicle = modelo})
         if #get_veh <= 0 then
             if quantidade > 0 then
